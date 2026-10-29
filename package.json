@@ -1,0 +1,10 @@
+{
+  "name": "bfs-visualizer",
+  "version": "1.0.0",
+  "description": "Interactive breadth-first search visualizer (static site)",
+  "scripts": {
+    "start": "npx serve .",
+    "test": "node bfs.test.js"
+  },
+  "license": "MIT"
+}

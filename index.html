@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BFS Visualizer</title>
+  <meta name="description" content="Watch breadth-first search find the shortest path through a maze you draw.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧭</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Breadth-first search</h1>
+      <p>Draw walls, then run BFS. It explores outward one step at a time, so the first time it reaches the goal is guaranteed to be the shortest route.</p>
+    </header>
+
+    <section class="toolbar" aria-label="Controls">
+      <button id="run" class="primary">Run BFS</button>
+      <button id="resetSearch">Clear search</button>
+      <button id="maze">Random walls</button>
+      <button id="clear">Clear all</button>
+      <label class="speed">Speed
+        <input id="speed" type="range" min="1" max="100" value="40">
+      </label>
+    </section>
+
+    <div class="stage">
+      <canvas id="grid" aria-label="BFS grid. Click or drag to draw walls."></canvas>
+    </div>
+
+    <section class="stats" aria-live="polite">
+      <div><span id="sVisited">0</span><small>cells explored</small></div>
+      <div><span id="sPath">–</span><small>path length</small></div>
+      <div><span id="sQueue">0</span><small>peak queue</small></div>
+      <div id="status" class="status">Ready</div>
+    </section>
+
+    <ul class="legend">
+      <li><i class="k start"></i>Start (drag to move)</li>
+      <li><i class="k end"></i>Goal (drag to move)</li>
+      <li><i class="k wall"></i>Wall (click or drag; click a wall to erase)</li>
+      <li><i class="k seen"></i>Explored, lighter = closer to start</li>
+      <li><i class="k path"></i>Shortest path</li>
+    </ul>
+  </main>
+
+  <script src="bfs.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
